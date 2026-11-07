@@ -10,9 +10,245 @@
     <header class="topbar">
         <div class = "brand">
             <div class = "brand-icon">FIS</div>
-            <div></div>
+            <div class="brand-text">
+                <h1>FIS Classroom Monitor</h1>
+                <p>Student Attendance System</p>
+            </div>
+        </div>
+        <div class = "header-actions">
+            <div class="system-status" id="cameraStatus">
+                <span class="live-dot" id="cameraDot"></span>
+                <span id="cameraStatusText">Camera Inactive</span>
+            </div>
+            <div class="login-container">
+                <button class="login-button" id = "loginButton" type="button">
+                    <span class="user-icon">♙</span>
+                    Teacher Login
+                    <span class="dropdown-arrow">⌄</span>
+                </button>
+            <div class="login-panel" id="loginPanel">
+                <h3>Teacher Login</h3>
+                <p>Sign in</p>
+                <form id="loginForm">
+                    <label for="username">Username</label>
+                        <input
+                            type="text"
+                            id="username"
+                            placeholder="Enter username"
+                            required
+                        >
+
+                        <label for="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Enter password"
+                            required
+                        >
+
+                        <button type="submit" class="primary-button">
+                            Sign In
+                        </button>
+                </form>
+                 <p class="login-message" id="loginMessage"></p>
+
+                    <p class="demo-note">
+                        Demonstration interface only.
+                    </p>
+            </div>
+            </div>
         </div>
     </header>
+    <main class="dashboard">
+        <section class="page-heading">
+
+            <div>
+                <h2>Classroom Overview</h2>
+                <p>Monitor student attendance and classroom activity.</p>
+            </div>
+
+            <div class="date-time">
+                <span id="currentDate"></span>
+                <strong id="currentTime"></strong>
+            </div>
+
+        </section>
+         <section class="class-banner">
+
+            <div>
+                <span class="section-label">CURRENT CLASSROOM</span>
+
+                <h2 id="classroomTitle">
+                    Grade 10
+                </h2>
+
+                <p>FIS Classroom Attendance Monitoring</p>
+            </div>
+
+            <div class="class-room-icon">
+                <img class= "schoollogo" src="fislogo.jpg">
+            </div>
+
+        </section>
+<section class="main-grid">
+
+
+            <!-- STUDENT ATTENDANCE BOX -->
+            <div class="panel attendance-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <h2>Student Attendance</h2>
+                        <p>View the current attendance of students.</p>
+                    </div>
+
+                    <span class="record-count" id="recordCount">
+                        0 Students
+                    </span>
+
+                </div>
+
+
+                <!-- GRADE SELECTOR AND SEARCH -->
+                <div class="table-controls">
+
+                    <div class="grade-selector">
+
+                        <label for="gradeSelect">
+                            Grade Level
+                        </label>
+
+                        <select id="gradeSelect">
+                            <option value="Grade 7">Grade 7</option>
+                            <option value="Grade 8">Grade 8</option>
+                            <option value="Grade 9">Grade 9</option>
+                            <option value="Grade 10" selected>Grade 10</option>
+                            <option value="Grade 11">Grade 11</option>
+                            <option value="Grade 12">Grade 12</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="search-box">
+
+                        <span>⌕</span>
+
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search student..."
+                        >
+
+                    </div>
+
+                </div>
+                
+
+                <!-- ATTENDANCE TABLE -->
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>STUDENT NAME</th>
+                                <th>TIME ENTERED</th>
+                                <th>STATUS</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="studentTable">
+                        </tbody>
+
+                    </table>
+
+                    <div class="empty-state" id="emptyState">
+                        No students found.
+                    </div>
+
+                </div>
+
+
+                <div class="table-footer">
+                    <span>Attendance updates are displayed here.</span>
+                    <span id="lastUpdated">Last updated: --</span>
+                </div>
+
+            </div>
+
+
+
+            <!-- STUDENT WARNINGS BOX -->
+            <div class="panel warnings-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+                        <h2>Student Warnings</h2>
+                        <p>Students requiring teacher attention.</p>
+                    </div>
+
+                    <span class="warning-count" id="warningCount">
+                        0
+                    </span>
+
+                </div>
+
+
+                <div class="warning-description">
+                    <span class="warning-symbol">!</span>
+
+                    <p>
+                        Students outside the classroom for longer
+                        than <strong>10 minutes</strong> will appear here.
+                    </p>
+                </div>
+
+
+                <!-- WARNING LIST -->
+                <div id="warningList" class="warning-list">
+                </div>
+
+
+                <!-- NO WARNINGS MESSAGE -->
+                <div class="no-warnings" id="noWarnings">
+                    <div class="success-icon">✓</div>
+
+                    <h3>No Current Warnings</h3>
+
+                    <p>
+                        There are currently no students requiring
+                        an extended-absence alert.
+                    </p>
+                </div>
+
+
+                <div class="warning-footer">
+                    Alerts require teacher review before administration
+                    is contacted.
+                </div>
+
+            </div>
+
+        </section>
+        <footer class="footer">
+
+            <span>
+                FIS Classroom Monitor © 2026
+            </span>
+
+            <span>
+                Demonstration Mode · Sample Student Records
+            </span>
+
+        </footer>
+
+    </main>
+
+
+    <script src="script.js"></script>
 </body>
 
 
